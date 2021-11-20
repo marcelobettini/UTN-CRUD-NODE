@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel="icon" href="/images/logo_icon.png">
+  <title>Coffee House DB</title>
+  <link rel='stylesheet' href='/stylesheets/style.css' />
+</head>
+
+<body>
+  <header>
+    <h1>Coffee House Database</h1>
+  </header>
+  <div class="heading">
+    {{#if user}}
+    <p>Hola {{user}}</p>
+    <a href="/logout">logout</a>
+    {{/if}}
+  </div>
+  {{{body}}}
+
+</body>
+
+</html>

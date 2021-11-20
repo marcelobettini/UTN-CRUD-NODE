@@ -1,0 +1,42 @@
+<main>
+    <div class="heading">
+        <h2>Listado de Productos</h2>
+    </div>
+
+    <table>
+
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>name</th>
+                <th>origin</th>
+                <th>presentation</th>
+                <th>price</th>
+                <th>acciones</th>
+
+            </tr>
+        </thead>
+        <tbody>
+            {{#each products}}
+
+            <tr>
+                <td>{{id}}</td>
+                <td>{{name}}</td>
+                <td>{{origin}}</td>
+                <td>{{presentation}}</td>
+                <td>{{price}}</td>
+                <td class="btn-group"><button>Borrar</button>
+                    <button>Editar</button>
+                </td>
+
+            </tr>
+            {{/each}}
+
+        </tbody>
+        <tfoot>
+            <tr>
+                <td colspan="6"><a href="/addItem">agregar</a></td>
+            </tr>
+        </tfoot>
+    </table>
+</main>

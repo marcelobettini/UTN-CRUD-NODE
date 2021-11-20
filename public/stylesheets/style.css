@@ -1,0 +1,109 @@
+body {
+  padding: 50px;
+  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
+}
+
+header,
+.heading {
+  text-align: center;
+}
+
+.form-container {
+  margin-top: 5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.form-container form {
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 350px;
+  height: 250px;
+  background-color: darkseagreen;
+}
+
+.form-container form input {
+  margin: 0 0 1rem 0;
+  font-size: larger;
+  line-height: 1.9;
+}
+.btn {
+  margin-top: 1.5rem;
+}
+.btn input {
+  width: 6rem;
+  height: 3rem;
+}
+
+/*table styling*/
+table {
+  padding: 1em;
+  border: 1px solid;
+  width: 800px;
+  background: darkseagreen;
+}
+tr th:last-child,
+td:last-child {
+  text-align: center;
+}
+
+thead {
+  font-size: 1.4rem;
+  height: 2em;
+  text-transform: capitalize;
+  text-align: left;
+
+  height: 4rem;
+}
+tbody {
+  font-size: 1.2rem;
+}
+tfoot {
+  background-color: white;
+  height: 4rem;
+}
+.btn-group button {
+  width: 6em;
+  background-color: #04aa6d; /* Green background */
+  border: 1px solid green; /* Green border */
+  color: white; /* White text */
+  padding: 5px 24px; /* Some padding */
+  cursor: pointer; /* Pointer/hand icon */
+}
+
+/* Add a background color on hover */
+.btn-group button:hover {
+  background-color: #3e8e41;
+}
+
+a {
+  background: darkseagreen;
+  padding: 0.5em 1em;
+  display: inline-block;
+  width: 4em;
+  border-radius: 5%;
+  color: white;
+  font-size: larger;
+  text-align: center;
+  text-decoration: none;
+}
+
+a:hover {
+  transform: scale(1.1);
+}
+main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+main .heading {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 2em 0;
+}
