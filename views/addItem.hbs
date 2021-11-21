@@ -1,0 +1,41 @@
+<div class="form-container form-add">
+    <form action="/listado/addItem" method="post">
+        <input type="text" placeholder="Nombre del producto..." name="name" size="50" maxlength="20">
+        <input type="text" placeholder="País de origen..." name="origin" size="50" maxlength="20">
+        <input type="text" placeholder="Presentación..." name="presentation" size="50" maxlength="140">
+        <textarea placeholder="Ingrese una descripción..." name="description" rows="6" cols="48"
+            maxlength="280"></textarea>
+        <div class="radio">
+            <h4>intensidad</h4>
+            <label for="1">1</label>
+            <input type="radio" name="intensity" value="1">
+            <label for="2">2</label>
+            <input type="radio" name="intensity" value="2">
+            <label for="3">3</label>
+            <input type="radio" name="intensity" value="3">
+            <label for="4">4</label>
+            <input type="radio" name="intensity" value="4">
+            <label for="5">5</label>
+            <input type="radio" name="intensity" value="5">
+            <label for="6">6</label>
+            <input type="radio" name="intensity" value="6">
+            <label for="7">7</label>
+            <input type="radio" name="intensity" value="7">
+            <label for="8">8</label>
+            <input type="radio" name="intensity" value="8">
+            <label for="9">9</label>
+            <input type="radio" name="intensity" value="9">
+            <label for="10">10</label>
+            <input type="radio" name="intensity" value="10">
+            <label for="11">11</label>
+            <input type="radio" name="intensity" value="11">
+            <label for="11">12</label>
+            <input type="radio" name="intensity" value="12">
+        </div>
+        <input class="price" type="number" placeholder="Precio..." name="price" size="10" maxlength="10">
+        <div class="btn-group">
+            <input type="submit" value="Enviar">
+            <a href="/listado"><input type="button" value="Cancelar"></a>
+        </div>
+    </form>
+</div>

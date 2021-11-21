@@ -8,14 +8,14 @@ header,
   text-align: center;
 }
 
+/*Estilizando los formularios login y addItem*/
 .form-container {
   margin-top: 5rem;
   display: flex;
   justify-content: center;
   align-items: center;
 }
-
-.form-container form {
+form {
   padding: 1rem;
   display: flex;
   flex-direction: column;
@@ -26,10 +26,19 @@ header,
   background-color: darkseagreen;
 }
 
-.form-container form input {
-  margin: 0 0 1rem 0;
-  font-size: larger;
-  line-height: 1.9;
+input,
+textarea {
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+  font-size: 18px;
+  margin-bottom: 1em;
+  resize: none;
+}
+.form-add form {
+  width: 600px;
+  height: 600px;
+}
+.radio {
+  text-align: center;
 }
 .btn {
   margin-top: 1.5rem;
@@ -38,7 +47,6 @@ header,
   width: 6rem;
   height: 3rem;
 }
-
 /*table styling*/
 table {
   padding: 1em;
@@ -61,26 +69,32 @@ thead {
 }
 tbody {
   font-size: 1.2rem;
+  margin-bottom: 2em;
 }
 tfoot {
-  background-color: white;
   height: 4rem;
 }
-.btn-group button {
+.btn-group button,
+.btn-group input,
+.tfoot-btn input {
   width: 6em;
   background-color: #04aa6d; /* Green background */
   border: 1px solid green; /* Green border */
   color: white; /* White text */
-  padding: 5px 24px; /* Some padding */
+  padding: 10px; /* Some padding */
+  margin: 10px;
   cursor: pointer; /* Pointer/hand icon */
 }
 
 /* Add a background color on hover */
-.btn-group button:hover {
+.btn-group button:hover,
+.btn-group input:hover,
+.tfoot-btn input:hover {
   background-color: #3e8e41;
+  transform: scale(1.1);
 }
 
-a {
+.heading a {
   background: darkseagreen;
   padding: 0.5em 1em;
   display: inline-block;
@@ -92,9 +106,6 @@ a {
   text-decoration: none;
 }
 
-a:hover {
-  transform: scale(1.1);
-}
 main {
   display: flex;
   flex-direction: column;
