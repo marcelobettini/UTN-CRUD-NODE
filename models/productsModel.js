@@ -8,5 +8,30 @@ async function getProducts() {
     throw error;
   }
 }
+async function getProduct(id) {
+  try {
+    const query = "SELECT * FROM products WHERE id =?";
+    const rows = await pool.query(query, [id]);
+    return rows;
+  } catch (error) {
+    throw error;
+  }
+}
 
-module.exports = { getProducts };
+async function addProduct(data) {
+  try {
+    const query = "INSERT INTO products SET ?";
+    const rows = await pool.query(query, [data]);
+    return rows;
+  } catch (error) {
+    throw error;
+  }
+}
+
+async function deleteItem(id) {
+  const query = "DELETE FROM products WHERE id = ?";
+  const rows = await pool.query(query, [id]);
+  return rows;
+}
+
+module.exports = { getProducts, getProduct, addProduct, deleteItem };

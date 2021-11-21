@@ -51,8 +51,8 @@ textarea {
 table {
   padding: 1em;
   border: 1px solid;
-  width: 800px;
-  background: darkseagreen;
+  width: 900px;
+  background: rgba(143, 188, 143, 0.479);
 }
 tr th:last-child,
 td:last-child {
@@ -71,12 +71,9 @@ tbody {
   font-size: 1.2rem;
   margin-bottom: 2em;
 }
-tfoot {
-  height: 4rem;
-}
+
 .btn-group button,
-.btn-group input,
-.tfoot-btn input {
+.btn-group input {
   width: 6em;
   background-color: #04aa6d; /* Green background */
   border: 1px solid green; /* Green border */
