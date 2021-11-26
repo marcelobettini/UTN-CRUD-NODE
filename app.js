@@ -12,8 +12,7 @@ const productsModel = require("./models/productsModel");
 ////enlazamos el enrutador a los archivos login y listado js
 const loginRouter = require("./routes/login");
 const listadoRouter = require("./routes/listado");
-
-var app = express();
+const app = express();
 
 // view engine setup
 app.set("views", path.join(__dirname, "views"));
