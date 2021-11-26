@@ -51,7 +51,7 @@ textarea {
 table {
   padding: 1em;
   border: 1px solid;
-  width: 80%;
+  width: 70%;
   background: rgba(143, 188, 143, 0.479);
 }
 tr th:last-child,
@@ -75,32 +75,33 @@ tbody {
 .btn-group button,
 .btn-group input {
   width: 6em;
-  background-color: #04aa6d; /* Green background */
-  border: 1px solid green; /* Green border */
-  color: white; /* White text */
+
   padding: 10px; /* Some padding */
   margin: 10px;
   cursor: pointer; /* Pointer/hand icon */
 }
-
-/* Add a background color on hover */
-.btn-group button:hover,
-.btn-group input:hover,
-.tfoot-btn input:hover {
-  background-color: #3e8e41;
-  transform: scale(1.1);
+.btn-editar {
+  background-color: #066b46;
+  border: 1px solid green;
+  color: white;
+}
+.btn-borrar {
+  background-color: #b62b2b;
+  border: 1px solid red;
+  color: white;
+}
+.btn-go-back {
+  background-color: #c8620d;
+  border: 1px solid rgb(255, 136, 0);
+  color: white;
 }
 
-.heading a {
-  background: darkseagreen;
-  padding: 0.5em 1em;
-  display: inline-block;
-  width: 4em;
-  border-radius: 5%;
-  color: white;
-  font-size: larger;
-  text-align: center;
-  text-decoration: none;
+.btn-borrar:hover,
+.btn-logout:hover,
+.btn-agregar:hover,
+.btn-editar:hover,
+.btn-go-back:hover {
+  transform: scale(1.1);
 }
 
 main {

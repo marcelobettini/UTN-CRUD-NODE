@@ -14,7 +14,9 @@
   <div class="heading">
     {{#if user}}
     <p>Hola {{user}}</p>
-    <a href="/logout">logout</a>
+    <div class="btn-group">
+      <a href="/logout"><input type="button" class="btn-go-back" value="logout"></a>
+    </div>
     {{/if}}
   </div>
   {{{body}}}
