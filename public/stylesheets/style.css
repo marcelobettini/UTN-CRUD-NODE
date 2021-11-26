@@ -51,7 +51,7 @@ textarea {
 table {
   padding: 1em;
   border: 1px solid;
-  width: 900px;
+  width: 80%;
   background: rgba(143, 188, 143, 0.479);
 }
 tr th:last-child,
