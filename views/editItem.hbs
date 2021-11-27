@@ -7,9 +7,11 @@
         <input type="text" name="presentation" size="50" maxlength="140" value="{{product.presentation}}">
         <textarea placeholder="Ingrese una descripción..." name="description" rows="6" cols="48"
             maxlength="280">{{product.description}}</textarea>
-        {{!-- cambiamos el campo que recibía un id por un input de tipo file --}}
+        {{!-- usamos un campo oculto para enviar el campo image en caso de que no haya cambios y necesitemos su valor
+        para volver a enviarlo en una edición en la que la imagen seguirá siendo la misma --}}
         <input type="text" value={{product.image}} name="prevImage" hidden>
-        <label for="imageFile">Id de la imagen: {{product.image}}</label>
+        {{!-- cambiamos el campo que recibía un id por un input de tipo file --}}
+        <label for="imageFile">Imagen del producto</label>
         <input type="file" name="imageFile">
 
         <div class="radio">
