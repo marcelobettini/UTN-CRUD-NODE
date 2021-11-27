@@ -74,6 +74,10 @@ router.post("/editProduct", async (req, res) => {
   if (!req.files) {
     img_id = req.body.prevImage;
   } else {
+    //traemos el registro porque necesitamos el campo image, que contiene el id a través del cual
+    // identificamos las imágenes en Cloudinary
+    row = await productsModel.getProduct(req.body.id);
+    await destroy(row[0].image); // y utilizamos el método destroy
     imageFile = req.files.imageFile;
     img_id = (await uploader(imageFile.tempFilePath)).public_id;
   }
