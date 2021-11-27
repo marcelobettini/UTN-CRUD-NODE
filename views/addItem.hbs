@@ -1,12 +1,14 @@
 <div class="form-container form-add">
-    <form action="/listado/addItem" method="post">
+    {{!-- la propiedad enctype="multipart/form-data" habilita al form a enviar también archivos --}}
+    <form action="/listado/addItem" method="post" enctype="multipart/form-data">
         <input type="text" placeholder="Nombre del producto..." name="name" size="50" maxlength="20">
         <input type="text" placeholder="País de origen..." name="origin" size="50" maxlength="20">
         <input type="text" placeholder="Presentación..." name="presentation" size="50" maxlength="140">
         <textarea placeholder="Ingrese una descripción..." name="description" rows="6" cols="48"
             maxlength="280"></textarea>
-        <label for="image">Id de la imagen</label>
-        <input type="number" name="image" min="1" max="9999">
+        {{!-- cambiamos el campo que recibía un id por un input de tipo file --}}
+        <label for="imageFile">Imagen</label>
+        <input type="file" name="imageFile">
         <div class="radio">
             <h4>intensidad</h4>
             <label for="1">1</label>
@@ -36,8 +38,8 @@
         </div>
         <input class="price" type="number" placeholder="Precio..." name="price" min="1" max="9999">
         <div class="btn-group">
-            <input type="submit" value="Enviar">
-            <a href="/listado"><input type="button" value="Cancelar"></a>
+            <input type="submit" value="Enviar" class="btn-editar">
+            <a href="/listado"><input type="button" value="Cancelar" class="btn-go-back"></a>
         </div>
     </form>
 </div>

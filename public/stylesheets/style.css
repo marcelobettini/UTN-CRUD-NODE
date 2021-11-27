@@ -51,56 +51,62 @@ textarea {
 table {
   padding: 1em;
   border: 1px solid;
-  width: 900px;
+  width: 80%;
   background: rgba(143, 188, 143, 0.479);
 }
+tr th:nth-child(5),
+tr td:nth-child(5),
+tr th:nth-child(6),
+tr td:nth-child(6),
 tr th:last-child,
 td:last-child {
   text-align: center;
 }
-
+table {
+  border-collapse: collapse;
+}
+tbody tr,
+thead {
+  border-bottom: 1px solid;
+}
 thead {
   font-size: 1.4rem;
-  height: 2em;
   text-transform: capitalize;
   text-align: left;
-
-  height: 4rem;
+  height: 7rem;
 }
 tbody {
   font-size: 1.2rem;
-  margin-bottom: 2em;
 }
 
 .btn-group button,
 .btn-group input {
-  width: 6em;
-  background-color: #04aa6d; /* Green background */
-  border: 1px solid green; /* Green border */
-  color: white; /* White text */
+  width: 5em;
   padding: 10px; /* Some padding */
   margin: 10px;
   cursor: pointer; /* Pointer/hand icon */
 }
-
-/* Add a background color on hover */
-.btn-group button:hover,
-.btn-group input:hover,
-.tfoot-btn input:hover {
-  background-color: #3e8e41;
-  transform: scale(1.1);
+.btn-editar {
+  background-color: #066b46;
+  border: none;
+  color: white;
+}
+.btn-borrar {
+  background-color: #b62b2b;
+  border: none;
+  color: white;
+}
+.btn-go-back {
+  background-color: #c8620d;
+  border: none;
+  color: white;
 }
 
-.heading a {
-  background: darkseagreen;
-  padding: 0.5em 1em;
-  display: inline-block;
-  width: 4em;
-  border-radius: 5%;
-  color: white;
-  font-size: larger;
-  text-align: center;
-  text-decoration: none;
+.btn-borrar:hover,
+.btn-logout:hover,
+.btn-editar:hover,
+.btn-go-back:hover {
+  transform: scale(1.1);
 }
 
 main {

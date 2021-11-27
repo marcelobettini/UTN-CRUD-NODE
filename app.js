@@ -7,6 +7,9 @@ require("dotenv").config(); // cargamos los datos de variables de ambiente
 //requerimos express-session para utilizar variables de sesión, las que serán necesarias
 //a la hora de chequear si un usuario está autorizado para acceder a la base de datos
 const session = require("express-session");
+const fileUpload = require("express-fileupload"); //dependencia para cargar imágenes
+const cloudinary = require("cloudinary"); //dependencia del server de imágenes Cloudinary
+
 const productsModel = require("./models/productsModel");
 
 ////enlazamos el enrutador a los archivos login y listado js
@@ -46,6 +49,15 @@ secured = async (req, res, next) => {
     res.redirect("/");
   }
 };
+
+//Confguramos express-fileupload (instrucciones en npm). Cuando carguemos un archivo,
+//será accesible desde req.files
+app.use(
+  fileUpload({
+    useTempFiles: true,
+    tempFileDir: "/tmp/",
+  })
+);
 
 ///// creamos la ruta para el login
 app.use("/", loginRouter);

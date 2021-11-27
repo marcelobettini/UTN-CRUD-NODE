@@ -1,8 +1,23 @@
 const express = require("express");
 const router = express.Router();
 const productsModel = require("../models/productsModel");
+
+//importamos dependencias para manejar el envío de archivos
+const util = require("util"); //con util "promisificaremos" el método de subida de archivos
+const cloudinary = require("cloudinary").v2;
+const uploader = util.promisify(cloudinary.uploader.upload); //incorporamos la funcionalidad asincrónica al método upload
+const destroy = util.promisify(cloudinary.uploader.destroy); //incorporamos la funcionalidad asincrónica al método destroy
+
 router.get("/", async (req, res) => {
-  const products = await productsModel.getProducts();
+  const data = await productsModel.getProducts();
+  const products = data.map((row) => {
+    const imageURL = cloudinary.url(row.image, {
+      width: 100,
+      height: 100,
+      crop: "fill",
+    });
+    return { ...row, imageURL };
+  });
   res.render("listado", { user: req.session.user, products });
 });
 
@@ -14,19 +29,23 @@ router.get("/addItem", (req, res) => {
 la técnica de destructuring en las líneas 16 y 17. En la ruta para modificar lo haremos
 del modo tradicional para que pueda comparar*/
 router.post("/addItem", async (req, res) => {
-  const { id, name, origin, description, intensity, price, presentation } =
-    req.body;
-  const data = {
-    id,
-    name,
-    origin,
-    description,
-    intensity,
-    price,
-    presentation,
-    image: `https://picsum.photos/id/${req.body.image}/250`,
-  };
-  await productsModel.addProduct(data);
+  let imageFile = req.files.imageFile;
+  const img_id = (await uploader(imageFile.tempFilePath)).public_id;
+
+  //VAMOS A REFACTORIZAR!!!
+  // const { id, name, origin, description, intensity, price, presentation } =
+  //   req.body;
+  // const data = {
+  //   id,
+  //   name,
+  //   origin,
+  //   description,
+  //   intensity,
+  //   price,
+  //   presentation,
+  //   image: img_id,
+  // };
+  await productsModel.addProduct({ ...req.body, image: img_id }); //spread operator ... envía todo el contenido de req.body
   res.redirect("/listado");
 });
 
@@ -51,6 +70,13 @@ router.get("/handleEdit/:id", async (req, res) => {
 desestructurar. Es decir, los datos que se reciben por req.body se van asignando uno a uno
 a las propiedades correspondientes del objeto data */
 router.post("/editProduct", async (req, res) => {
+  let img_id = null;
+  if (!req.files) {
+    img_id = req.body.prevImage;
+  } else {
+    imageFile = req.files.imageFile;
+    img_id = (await uploader(imageFile.tempFilePath)).public_id;
+  }
   const data = {
     id: req.body.id,
     name: req.body.name,
@@ -59,7 +85,7 @@ router.post("/editProduct", async (req, res) => {
     intensity: req.body.intensity,
     price: req.body.price,
     presentation: req.body.presentation,
-    image: `https://picsum.photos/id/${req.body.image}/250`,
+    image: img_id,
   };
   await productsModel.modifyProduct(data, data.id);
   res.redirect("/listado");
@@ -67,7 +93,10 @@ router.post("/editProduct", async (req, res) => {
 
 /*Ruta para eliminar, recibe parámetro id*/
 router.get("/deleteProduct/:id", async (req, res) => {
-  console.log(req.params.id);
+  //traemos el registro porque necesitamos el campo image, que contiene el id a través del cual
+  // identificamos las imágenes en Cloudinary
+  row = await productsModel.getProduct(req.params.id);
+  await destroy(row[0].image); // y utilizamos el método destroy
   await productsModel.deleteProduct(req.params.id);
   res.redirect("/listado");
 });
