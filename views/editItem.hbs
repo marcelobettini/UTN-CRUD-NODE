@@ -1,17 +1,17 @@
 <div class="form-container form-add">
-    <form action="/listado/editProduct" method="post">
+    {{!-- la propiedad enctype="multipart/form-data" habilita al form a enviar también archivos --}}
+    <form action="/listado/editProduct" method="post" enctype="multipart/form-data">
         <input type="text" name="id" size="6" value={{product.id}} readonly="readonly">
-        <input type="text" placeholder="Nombre del producto..." name="name" size="50" maxlength="20"
-            value="{{product.name}}">
-        <input type="text" placeholder="País de origen..." name="origin" size="50" maxlength="20"
-            value="{{product.origin}}">
-        <input type="text" placeholder="Presentación..." name="presentation" size="50" maxlength="140"
-            value="{{product.presentation}}">
-
+        <input type="text" name="name" size="50" maxlength="20" value="{{product.name}}">
+        <input type="text" name="origin" size="50" maxlength="20" value="{{product.origin}}">
+        <input type="text" name="presentation" size="50" maxlength="140" value="{{product.presentation}}">
         <textarea placeholder="Ingrese una descripción..." name="description" rows="6" cols="48"
             maxlength="280">{{product.description}}</textarea>
-        <label for="image">Id de la imagen</label>
-        <input type="number" name="image" min="1" max="9999">
+        {{!-- cambiamos el campo que recibía un id por un input de tipo file --}}
+        <input type="text" value={{product.image}} name="prevImage" hidden>
+        <label for="imageFile">Id de la imagen: {{product.image}}</label>
+        <input type="file" name="imageFile">
+
         <div class="radio">
             <h4>intensidad: {{product.intensity}}</h4>
             <label for="1">1</label>
@@ -43,7 +43,7 @@
         <input class="price" type="number" name="price" min="1" max="9999" size="10" value="{{product.price}}">
         <div class="btn-group">
             <input type="submit" value="Cambiar" class="btn-editar">
-            <a href="/listado/deleteProduct/{{product.id}}"><input class="btn-borrar" type="button" value="Borrar"></a>
+            <a href="/listado/deleteProduct/{{product.id}}"><input type="button" value="Borrar" class="btn-borrar"></a>
             <a href="/listado"><input class="btn-go-back" type="button" value="Cancelar"></a>
 
         </div>

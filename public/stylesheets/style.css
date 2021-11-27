@@ -51,54 +51,59 @@ textarea {
 table {
   padding: 1em;
   border: 1px solid;
-  width: 70%;
+  width: 80%;
   background: rgba(143, 188, 143, 0.479);
 }
+tr th:nth-child(5),
+tr td:nth-child(5),
+tr th:nth-child(6),
+tr td:nth-child(6),
 tr th:last-child,
 td:last-child {
   text-align: center;
 }
-
+table {
+  border-collapse: collapse;
+}
+tbody tr,
+thead {
+  border-bottom: 1px solid;
+}
 thead {
   font-size: 1.4rem;
-  height: 2em;
   text-transform: capitalize;
   text-align: left;
-
-  height: 4rem;
+  height: 7rem;
 }
 tbody {
   font-size: 1.2rem;
-  margin-bottom: 2em;
 }
 
 .btn-group button,
 .btn-group input {
-  width: 6em;
-
+  width: 5em;
   padding: 10px; /* Some padding */
   margin: 10px;
   cursor: pointer; /* Pointer/hand icon */
 }
 .btn-editar {
   background-color: #066b46;
-  border: 1px solid green;
+  border: none;
   color: white;
 }
 .btn-borrar {
   background-color: #b62b2b;
-  border: 1px solid red;
+  border: none;
   color: white;
 }
 .btn-go-back {
   background-color: #c8620d;
-  border: 1px solid rgb(255, 136, 0);
+  border: none;
   color: white;
 }
 
 .btn-borrar:hover,
 .btn-logout:hover,
-.btn-agregar:hover,
 .btn-editar:hover,
 .btn-go-back:hover {
   transform: scale(1.1);
