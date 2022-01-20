@@ -70,17 +70,13 @@ router.get("/handleEdit/:id", async (req, res) => {
 desestructurar. Es decir, los datos que se reciben por req.body se van asignando uno a uno
 a las propiedades correspondientes del objeto data */
 router.post("/editProduct", async (req, res) => {
-  console.log(req.body.prevIntensity);
-  let img_id = null;
-  if (!req.files) {
-    img_id = req.body.prevImage;
-  } else {
+  let newImg = null;
+  if (req.files) {
     //traemos el registro porque necesitamos el campo image, que contiene el id a través del cual
     // identificamos las imágenes en Cloudinary
     row = await productsModel.getProduct(req.body.id);
     await destroy(row[0].image); // y utilizamos el método destroy
-    imageFile = req.files.imageFile;
-    img_id = (await uploader(imageFile.tempFilePath)).public_id;
+    newImg = (await uploader(req.files.imageFile.tempFilePath)).public_id;
   }
   const data = {
     id: req.body.id,
@@ -90,7 +86,7 @@ router.post("/editProduct", async (req, res) => {
     intensity: req.body.intensity || req.body.prevIntensity,
     price: req.body.price,
     presentation: req.body.presentation,
-    image: img_id,
+    image: newImg || req.body.prevImage,
   };
   await productsModel.modifyProduct(data, data.id);
   res.redirect("/listado");
