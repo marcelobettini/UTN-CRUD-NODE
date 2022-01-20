@@ -70,6 +70,7 @@ router.get("/handleEdit/:id", async (req, res) => {
 desestructurar. Es decir, los datos que se reciben por req.body se van asignando uno a uno
 a las propiedades correspondientes del objeto data */
 router.post("/editProduct", async (req, res) => {
+  console.log(req.body.prevIntensity);
   let img_id = null;
   if (!req.files) {
     img_id = req.body.prevImage;
@@ -86,7 +87,7 @@ router.post("/editProduct", async (req, res) => {
     name: req.body.name,
     origin: req.body.origin,
     description: req.body.origin,
-    intensity: req.body.intensity,
+    intensity: req.body.intensity || req.body.prevIntensity,
     price: req.body.price,
     presentation: req.body.presentation,
     image: img_id,

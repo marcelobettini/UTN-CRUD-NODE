@@ -13,33 +13,32 @@
         {{!-- cambiamos el campo que recibía un id por un input de tipo file --}}
         <label for="imageFile">Imagen del producto</label>
         <input type="file" name="imageFile">
-
+<input type="text" name="prevIntensity" value="{{product.intensity}}" hidden>
         <div class="radio">
             <h4>intensidad: {{product.intensity}}</h4>
             <label for="1">1</label>
-            <input type="radio" name="intensity" value="1" checked="checked">
-            <label for="2">2</label>
-            <input type="radio" name="intensity" value="2">
+            <input type="radio" data-id="1" name="intensity" value="1" >
+            <input type="radio" data-id="2" name="intensity" value="2">
             <label for="3">3</label>
-            <input type="radio" name="intensity" value="3">
+            <input type="radio" data-id="3" name="intensity" value="3">
             <label for="4">4</label>
-            <input type="radio" name="intensity" value="4">
+            <input type="radio" data-id="4" name="intensity" value="4">
             <label for="5">5</label>
-            <input type="radio" name="intensity" value="5">
+            <input type="radio" data-id="5" name="intensity" value="5">
             <label for="6">6</label>
-            <input type="radio" name="intensity" value="6">
+            <input type="radio" data-id="6" name="intensity" value="6">
             <label for="7">7</label>
-            <input type="radio" name="intensity" value="7">
+            <input type="radio" data-id="7" name="intensity" value="7">
             <label for="8">8</label>
-            <input type="radio" name="intensity" value="8">
+            <input type="radio" data-id="8" name="intensity" value="8">
             <label for="9">9</label>
-            <input type="radio" name="intensity" value="9">
+            <input type="radio" data-id="9" name="intensity" value="9">
             <label for="10">10</label>
-            <input type="radio" name="intensity" value="10">
+            <input type="radio" data-id="10" name="intensity" value="10">
             <label for="11">11</label>
-            <input type="radio" name="intensity" value="11">
+            <input type="radio" data-id="11" name="intensity" value="11">
             <label for="11">12</label>
-            <input type="radio" name="intensity" value="12">
+            <input type="radio" data-id="12" name="intensity" value="12">
         </div>
         <label for="price">Precio en $</label>
         <input class="price" type="number" name="price" min="1" max="9999" size="10" value="{{product.price}}">
